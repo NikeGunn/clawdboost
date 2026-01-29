@@ -1,0 +1,57 @@
+{
+  "id": "clawdboost",
+  "name": "ClawdBoost",
+  "description": "🚀 Supercharge your Clawdbot with smart context injection! Automatically boost AI conversations with pattern-matched, time-aware context snippets.",
+  "version": "1.0.0",
+  "author": "carryonprogrammer",
+  "homepage": "https://github.com/carryonprogrammer/clawdboost",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "enabled": {
+        "type": "boolean",
+        "default": true,
+        "description": "Enable or disable ClawdBoost globally"
+      },
+      "snippetsPath": {
+        "type": "string",
+        "description": "Path to the snippets directory (default: ~/.clawdbot/clawdboost/snippets)"
+      },
+      "rulesPath": {
+        "type": "string",
+        "description": "Path to the rules file (default: ~/.clawdbot/clawdboost/rules.json)"
+      },
+      "maxSnippetsPerTurn": {
+        "type": "number",
+        "default": 5,
+        "description": "Maximum number of snippets to inject per agent turn"
+      },
+      "maxSnippetChars": {
+        "type": "number",
+        "default": 2000,
+        "description": "Maximum characters per injected snippet"
+      },
+      "enableTimeAware": {
+        "type": "boolean",
+        "default": true,
+        "description": "Enable time-aware context (morning/evening/weekend rules)"
+      },
+      "enablePatternMatch": {
+        "type": "boolean",
+        "default": true,
+        "description": "Enable pattern-matching context triggers"
+      },
+      "logInjections": {
+        "type": "boolean",
+        "default": false,
+        "description": "Log when context is injected (for debugging)"
+      },
+      "timezone": {
+        "type": "string",
+        "default": "local",
+        "description": "Timezone for time-aware rules (e.g., 'America/New_York' or 'local')"
+      }
+    }
+  }
+}

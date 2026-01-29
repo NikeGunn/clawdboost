@@ -1,0 +1,68 @@
+{
+  "name": "clawdboost",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "🚀 ClawdBoost - Smart context injection plugin for Clawdbot/Moltbot. Automatically supercharge your AI conversations with pattern-matched, time-aware context snippets!",
+  "author": "carryonprogrammer",
+  "license": "MIT",
+  "keywords": [
+    "clawdboost",
+    "clawdbot",
+    "moltbot",
+    "context",
+    "ai",
+    "assistant",
+    "claude",
+    "chatgpt",
+    "llm",
+    "knowledge",
+    "snippets",
+    "automation",
+    "context-injection",
+    "ai-tools",
+    "chatbot-plugin",
+    "ai-assistant",
+    "smart-context"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carryonprogrammer/clawdboost.git"
+  },
+  "homepage": "https://github.com/carryonprogrammer/clawdboost#readme",
+  "bugs": {
+    "url": "https://github.com/carryonprogrammer/clawdboost/issues"
+  },
+  "moltbot": {
+    "extensions": [
+      "./src/index.ts"
+    ]
+  },
+  "main": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "files": [
+    "src",
+    "clawdbot.plugin.json",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "node --experimental-vm-modules node_modules/vitest/vitest.mjs run",
+    "test:watch": "node --experimental-vm-modules node_modules/vitest/vitest.mjs",
+    "test:standalone": "node test/standalone.test.mjs",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "moltbot": ">=2026.1.26"
+  },
+  "peerDependenciesMeta": {
+    "moltbot": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@sinclair/typebox": "^0.34.0",
+    "typescript": "^5.7.0",
+    "vitest": "^2.1.0"
+  }
+}
