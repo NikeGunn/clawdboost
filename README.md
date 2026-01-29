@@ -16,6 +16,8 @@
 ```bash
 # Step 1: Install
 npm install clawdboost
+# Or with pnpm:
+pnpm add clawdboost
 
 # Step 2: Initialize with example snippets
 npx clawdboost init
