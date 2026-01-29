@@ -1,6 +1,6 @@
 {
   "name": "clawdboost",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "description": "🚀 ClawdBoost - Smart context injection plugin for Clawdbot/Moltbot. Automatically supercharge your AI conversations with pattern-matched, time-aware context snippets!",
   "author": "carryonprogrammer",
