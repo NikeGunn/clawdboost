@@ -26,11 +26,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/carryonprogrammer/clawdboost.git"
+    "url": "git+https://github.com/NikeGunn/clawdboost.git"
   },
-  "homepage": "https://github.com/carryonprogrammer/clawdboost#readme",
+  "homepage": "https://github.com/NikeGunn/clawdboost#readme",
   "bugs": {
-    "url": "https://github.com/carryonprogrammer/clawdboost/issues"
+    "url": "https://github.com/NikeGunn/clawdboost/issues"
   },
   "moltbot": {
     "extensions": [

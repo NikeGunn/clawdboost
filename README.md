@@ -5,7 +5,7 @@
 [![npm version](https://img.shields.io/npm/v/clawdboost?style=for-the-badge&color=red)](https://www.npmjs.com/package/clawdboost)
 [![Downloads](https://img.shields.io/npm/dm/clawdboost?style=for-the-badge&color=blue)](https://www.npmjs.com/package/clawdboost)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](LICENSE)
-[![GitHub stars](https://img.shields.io/github/stars/carryonprogrammer/clawdboost?style=for-the-badge&color=yellow)](https://github.com/carryonprogrammer/clawdboost)
+[![GitHub stars](https://img.shields.io/github/stars/NikeGunn/clawdboost?style=for-the-badge&color=yellow)](https://github.com/NikeGunn/clawdboost)
 
 > 🔥 **Made for the Clawdbot ecosystem** — The ultimate context injection plugin!
 
