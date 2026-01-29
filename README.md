@@ -67,7 +67,7 @@ Or install from local path for development:
 ### Initialize with Examples
 
 ```bash
-moltbot context-boost init
+moltbot clawdboost init
 # or shorthand:
 moltbot cb init
 ```
@@ -113,11 +113,11 @@ moltbot cb status
 
 ### AI Tool Usage
 
-The AI can manage snippets and rules through the `context_boost` tool:
+The AI can manage snippets and rules through the `clawdboost` tool:
 
 ```
 User: Create a snippet for code reviews
-AI: [uses context_boost tool with action: add_snippet]
+AI: [uses clawdboost tool with action: add_snippet]
 ```
 
 Available actions:
@@ -135,7 +135,7 @@ Available actions:
 
 ## 📝 Snippets
 
-Snippets are pieces of context that can be automatically injected. Create them in `~/.clawdbot/context-boost/snippets/`:
+Snippets are pieces of context that can be automatically injected. Create them in `~/.clawdbot/clawdboost/snippets/`:
 
 ```json
 {
@@ -192,7 +192,7 @@ Inject based on time of day or day of week:
 
 ## 📋 Rules
 
-Rules provide more complex trigger-action logic. Stored in `~/.clawdbot/context-boost/rules.json`:
+Rules provide more complex trigger-action logic. Stored in `~/.clawdbot/clawdboost/rules.json`:
 
 ```json
 {
@@ -241,15 +241,15 @@ Full configuration options in `moltbot.json`:
 {
   "plugins": {
     "entries": {
-      "context-boost": {
+      "clawdboost": {
         "enabled": true,
         "config": {
           // Enable/disable globally
           "enabled": true,
 
           // Custom paths
-          "snippetsPath": "~/.clawdbot/context-boost/snippets",
-          "rulesPath": "~/.clawdbot/context-boost/rules.json",
+          "snippetsPath": "~/.clawdbot/clawdboost/snippets",
+          "rulesPath": "~/.clawdbot/clawdboost/rules.json",
 
           // Limits
           "maxSnippetsPerTurn": 5,
@@ -322,4 +322,4 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 ---
 
-**Context Boost** — Making your AI assistant smarter, one context at a time. 🧠✨
+**ClawdBoost** — Making your AI assistant smarter, one context at a time. 🧠✨

@@ -1,4 +1,4 @@
-# Context Boost - Project Files
+# ClawdBoost - Project Files
 
 ## Overview
 
@@ -7,7 +7,7 @@ This is a Moltbot plugin that provides smart context injection capabilities.
 ## File Structure
 
 ```
-context-boost/
+clawdboost/
 ├── package.json              # NPM package definition
 ├── clawdbot.plugin.json      # Moltbot plugin manifest
 ├── tsconfig.json             # TypeScript configuration
@@ -16,7 +16,7 @@ context-boost/
 └── src/
     ├── index.ts              # Plugin entry point
     ├── manager.ts            # Core manager (snippets, rules, matching)
-    ├── context-boost-tool.ts # AI tool implementation
+    ├── clawdboost-tool.ts    # AI tool implementation
     ├── hooks.ts              # Message and agent hooks
     └── cli.ts                # CLI commands
 ```
@@ -44,7 +44,7 @@ pnpm test
 {
   "plugins": {
     "load": {
-      "paths": ["/path/to/context-boost"]
+      "paths": ["/path/to/clawdboost"]
     }
   }
 }

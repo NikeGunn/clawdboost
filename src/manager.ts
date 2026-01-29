@@ -91,7 +91,7 @@ export class ClawdBoostManager {
 
   private constructor(params: {
     config: MoltbotConfig;
-    pluginConfig: ContextBoostConfig;
+    pluginConfig: ClawdBoostConfig;
     logger: ManagerLogger;
     resolvePath: (input: string) => string;
   }) {
@@ -509,7 +509,7 @@ export class ClawdBoostManager {
   formatContextForInjection(matches: ContextMatch[]): string {
     if (matches.length === 0) return "";
 
-    const lines = ["[Context Boost — relevant context injected automatically]", ""];
+    const lines = ["[ClawdBoost — relevant context injected automatically]", ""];
 
     for (const match of matches) {
       const label = match.snippetId
@@ -522,7 +522,7 @@ export class ClawdBoostManager {
       lines.push("");
     }
 
-    lines.push("[End Context Boost]");
+    lines.push("[End ClawdBoost]");
     return lines.join("\n");
   }
 }

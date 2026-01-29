@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /**
- * Context Boost - Interactive Demo
+ * ClawdBoost - Interactive Demo
  * 
- * This demo shows how Context Boost works without needing moltbot installed.
+ * This demo shows how ClawdBoost works without needing moltbot installed.
  * Run with: node test/demo.mjs
  */
 
@@ -24,7 +24,7 @@ const c = {
 };
 
 // Demo directory
-const DEMO_DIR = path.join(os.homedir(), ".context-boost-demo");
+const DEMO_DIR = path.join(os.homedir(), ".clawdboost-demo");
 const SNIPPETS_DIR = path.join(DEMO_DIR, "snippets");
 const RULES_FILE = path.join(DEMO_DIR, "rules.json");
 
@@ -157,7 +157,7 @@ function formatContext(matches) {
   
   const lines = [
     `${c.cyan}╔══════════════════════════════════════════════════════════════╗${c.reset}`,
-    `${c.cyan}║${c.reset} ${c.bold}Context Boost${c.reset} — Relevant context injected automatically    ${c.cyan}║${c.reset}`,
+    `${c.cyan}║${c.reset} ${c.bold}ClawdBoost${c.reset} — Relevant context injected automatically       ${c.cyan}║${c.reset}`,
     `${c.cyan}╠══════════════════════════════════════════════════════════════╣${c.reset}`,
   ];
   
@@ -269,10 +269,10 @@ function setupDemo() {
 async function runInteractiveDemo() {
   console.log(`
 ${c.bold}${c.magenta}╔═══════════════════════════════════════════════════════════════╗${c.reset}
-${c.bold}${c.magenta}║${c.reset}        ${c.bold}🚀 Context Boost - Interactive Demo${c.reset}                   ${c.bold}${c.magenta}║${c.reset}
+${c.bold}${c.magenta}║${c.reset}        ${c.bold}🚀 ClawdBoost - Interactive Demo${c.reset}                      ${c.bold}${c.magenta}║${c.reset}
 ${c.bold}${c.magenta}╚═══════════════════════════════════════════════════════════════╝${c.reset}
 
-This demo shows how Context Boost automatically injects relevant
+This demo shows how ClawdBoost automatically injects relevant
 context based on your messages.
 
 ${c.yellow}Demo snippets loaded:${c.reset}
@@ -303,7 +303,7 @@ ${c.dim}Type 'list' to see all snippets, 'quit' to exit.${c.reset}
       }
       
       if (message.toLowerCase() === "quit" || message.toLowerCase() === "exit") {
-        console.log(`\n${c.green}Thanks for trying Context Boost! 👋${c.reset}\n`);
+        console.log(`\n${c.green}Thanks for trying ClawdBoost! 👋${c.reset}\n`);
         rl.close();
         return;
       }

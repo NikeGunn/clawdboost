@@ -43,12 +43,12 @@ export function createClawdBoostHooks(manager: ClawdBoostManager, api: MoltbotPl
 
           if (logInjections) {
             api.logger.info(
-              `Context Boost: ${matches.length} context(s) matched for session ${ctx.sessionKey}`
+              `🚀 ClawdBoost: ${matches.length} context(s) matched for session ${ctx.sessionKey}`
             );
           }
         }
       } catch (err) {
-        api.logger.error(`Context Boost message hook error: ${err}`);
+        api.logger.error(`ClawdBoost message hook error: ${err}`);
       }
     },
 

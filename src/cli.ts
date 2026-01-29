@@ -177,7 +177,7 @@ export function registerClawdBoostCli(
         return;
       }
 
-      console.log("\nContext Boost Rules:");
+      console.log("\n🚀 ClawdBoost Rules:");
       console.log("═".repeat(60));
 
       for (const r of rules) {
@@ -303,7 +303,7 @@ export function registerClawdBoostCli(
     });
 
   cb.command("status")
-    .description("Show Context Boost status and statistics")
+    .description("Show ClawdBoost status and statistics")
     .option("--json", "Output as JSON")
     .action(async (opts) => {
       const [snippets, rules] = await Promise.all([
@@ -327,7 +327,7 @@ export function registerClawdBoostCli(
         return;
       }
 
-      console.log("\nContext Boost Status");
+      console.log("\n🚀 ClawdBoost Status");
       console.log("═".repeat(40));
       console.log(`Snippets Directory: ${stats.snippetsDir}`);
       console.log(`Rules File: ${stats.rulesFile}`);
@@ -344,9 +344,9 @@ export function registerClawdBoostCli(
     });
 
   cb.command("init")
-    .description("Initialize Context Boost with example snippets")
+    .description("Initialize ClawdBoost with example snippets")
     .action(async () => {
-      console.log("Initializing Context Boost with example snippets...\n");
+      console.log("Initializing ClawdBoost with example snippets...\n");
 
       // Example: Morning context
       await manager.saveSnippet({
@@ -427,7 +427,7 @@ export function registerClawdBoostCli(
       });
       console.log("✓ Created rule: github-context");
 
-      console.log("\n✨ Context Boost initialized!");
+      console.log("\n✨ ClawdBoost initialized!");
       console.log("\nNext steps:");
       console.log("  moltbot cb snippets     # List all snippets");
       console.log("  moltbot cb rules        # List all rules");

@@ -1,5 +1,5 @@
 /**
- * Standalone Test for Context Boost
+ * Standalone Test for ClawdBoost
  * 
  * This test runs without needing moltbot installed.
  * Run with: node test/standalone.test.mjs
@@ -10,7 +10,7 @@ import path from "node:path";
 import os from "node:os";
 
 // Test configuration
-const TEST_DIR = path.join(os.tmpdir(), "context-boost-test-" + Date.now());
+const TEST_DIR = path.join(os.tmpdir(), "clawdboost-test-" + Date.now());
 const SNIPPETS_DIR = path.join(TEST_DIR, "snippets");
 const RULES_FILE = path.join(TEST_DIR, "rules.json");
 
@@ -60,7 +60,7 @@ function assertContains(str, substring, msg = "") {
 // Setup
 // ============================================================================
 
-console.log(colors.bold("\n🧪 Context Boost - Standalone Tests\n"));
+console.log(colors.bold("\n🧪 ClawdBoost - Standalone Tests\n"));
 console.log(`Test directory: ${TEST_DIR}\n`);
 
 // Create test directories
@@ -277,21 +277,21 @@ test("Format single snippet", () => {
     priority: 50,
   }];
   
-  const lines = ["[Context Boost — relevant context injected automatically]", ""];
+  const lines = ["[ClawdBoost — relevant context injected automatically]", ""];
   for (const match of matches) {
     const label = match.snippetId ? `Snippet: ${match.snippetId}` : "Context";
     lines.push(`--- ${label} ---`);
     lines.push(match.content);
     lines.push("");
   }
-  lines.push("[End Context Boost]");
+  lines.push("[End ClawdBoost]");
   
   const formatted = lines.join("\n");
   
-  assertContains(formatted, "[Context Boost");
+  assertContains(formatted, "[ClawdBoost");
   assertContains(formatted, "greeting");
   assertContains(formatted, "Hello there!");
-  assertContains(formatted, "[End Context Boost]");
+  assertContains(formatted, "[End ClawdBoost]");
 });
 
 test("Format multiple matches", () => {
@@ -300,7 +300,7 @@ test("Format multiple matches", () => {
     { ruleId: "two", content: "Second", source: "rule", priority: 50 },
   ];
   
-  const lines = ["[Context Boost — relevant context injected automatically]", ""];
+  const lines = ["[ClawdBoost — relevant context injected automatically]", ""];
   for (const match of matches) {
     const label = match.snippetId 
       ? `Snippet: ${match.snippetId}` 
@@ -309,7 +309,7 @@ test("Format multiple matches", () => {
     lines.push(match.content);
     lines.push("");
   }
-  lines.push("[End Context Boost]");
+  lines.push("[End ClawdBoost]");
   
   const formatted = lines.join("\n");
   

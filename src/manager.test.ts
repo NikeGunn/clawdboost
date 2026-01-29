@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest";
-import { ContextBoostManager } from "./manager.js";
+import { ClawdBoostManager } from "./manager.js";
 
 // Mock fs modules
 vi.mock("node:fs/promises", () => ({
@@ -20,7 +20,7 @@ vi.mock("node:fs", () => ({
   },
 }));
 
-describe("ContextBoostManager", () => {
+describe("ClawdBoostManager", () => {
   const mockLogger = {
     info: vi.fn(),
     warn: vi.fn(),
@@ -38,24 +38,24 @@ describe("ContextBoostManager", () => {
   };
 
   beforeEach(() => {
-    ContextBoostManager.resetInstance();
+    ClawdBoostManager.resetInstance();
     vi.clearAllMocks();
   });
 
   afterEach(() => {
-    ContextBoostManager.resetInstance();
+    ClawdBoostManager.resetInstance();
   });
 
   describe("getInstance", () => {
     it("should create a singleton instance", () => {
-      const manager1 = ContextBoostManager.getInstance({
+      const manager1 = ClawdBoostManager.getInstance({
         config: mockConfig,
         pluginConfig: mockPluginConfig,
         logger: mockLogger,
         resolvePath: (p) => p,
       });
 
-      const manager2 = ContextBoostManager.getInstance({
+      const manager2 = ClawdBoostManager.getInstance({
         config: mockConfig,
         pluginConfig: mockPluginConfig,
         logger: mockLogger,
@@ -68,7 +68,7 @@ describe("ContextBoostManager", () => {
 
   describe("formatContextForInjection", () => {
     it("should format matches correctly", () => {
-      const manager = ContextBoostManager.getInstance({
+      const manager = ClawdBoostManager.getInstance({
         config: mockConfig,
         pluginConfig: mockPluginConfig,
         logger: mockLogger,
@@ -86,14 +86,14 @@ describe("ContextBoostManager", () => {
 
       const result = manager.formatContextForInjection(matches);
 
-      expect(result).toContain("[Context Boost");
+      expect(result).toContain("[ClawdBoost");
       expect(result).toContain("test-snippet");
       expect(result).toContain("Test content");
-      expect(result).toContain("[End Context Boost]");
+      expect(result).toContain("[End ClawdBoost]");
     });
 
     it("should return empty string for no matches", () => {
-      const manager = ContextBoostManager.getInstance({
+      const manager = ClawdBoostManager.getInstance({
         config: mockConfig,
         pluginConfig: mockPluginConfig,
         logger: mockLogger,
@@ -107,7 +107,7 @@ describe("ContextBoostManager", () => {
 
   describe("directory paths", () => {
     it("should return correct snippets directory", () => {
-      const manager = ContextBoostManager.getInstance({
+      const manager = ClawdBoostManager.getInstance({
         config: mockConfig,
         pluginConfig: mockPluginConfig,
         logger: mockLogger,
@@ -115,12 +115,12 @@ describe("ContextBoostManager", () => {
       });
 
       const snippetsDir = manager.getSnippetsDir();
-      expect(snippetsDir).toContain("context-boost");
+      expect(snippetsDir).toContain("clawdboost");
       expect(snippetsDir).toContain("snippets");
     });
 
     it("should return correct rules file", () => {
-      const manager = ContextBoostManager.getInstance({
+      const manager = ClawdBoostManager.getInstance({
         config: mockConfig,
         pluginConfig: mockPluginConfig,
         logger: mockLogger,
@@ -128,7 +128,7 @@ describe("ContextBoostManager", () => {
       });
 
       const rulesFile = manager.getRulesFile();
-      expect(rulesFile).toContain("context-boost");
+      expect(rulesFile).toContain("clawdboost");
       expect(rulesFile).toContain("rules.json");
     });
   });
