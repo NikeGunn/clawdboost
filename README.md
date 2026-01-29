@@ -9,6 +9,45 @@
 
 > 🔥 **Made for the Clawdbot ecosystem** — The ultimate context injection plugin!
 
+---
+
+## ⚡ Quick Start (30 seconds)
+
+```bash
+# Step 1: Install
+npm install clawdboost
+
+# Step 2: Initialize with example snippets
+npx clawdboost init
+```
+
+**Step 3:** Add to your `~/.clawdbot/moltbot.json`:
+
+```json
+{
+  "plugins": {
+    "entries": {
+      "clawdboost": { "enabled": true }
+    },
+    "load": {
+      "paths": ["node_modules/clawdboost"]
+    }
+  }
+}
+```
+
+**Step 4:** Start using!
+
+```bash
+moltbot cb status          # Check it's working
+moltbot cb snippets        # View your snippets
+moltbot cb add "My Info" --content "I'm a developer at Acme Corp" --patterns "work,job"
+```
+
+That's it! ClawdBoost will now automatically inject relevant context into your AI conversations. 🎉
+
+---
+
 ## 🎯 What is ClawdBoost?
 
 ClawdBoost is a powerful plugin that **automatically injects relevant context** into your AI conversations based on:
@@ -18,19 +57,11 @@ ClawdBoost is a powerful plugin that **automatically injects relevant context** 
 - **🎯 Smart Rules**: Complex trigger conditions with multiple actions
 - **📚 Personal Knowledge Base**: Quick-access facts, preferences, and reference data
 
-## 🚀 Quick Install
+## � Advanced Configuration
 
-```bash
-# Install via npm
-npm install clawdboost
+### Full Configuration Options
 
-# Or via pnpm
-pnpm add clawdboost
-```
-
-### Enable in Moltbot/Clawdbot
-
-Add to your `~/.clawdbot/moltbot.json`:
+For more control, use the full configuration in `~/.clawdbot/moltbot.json`:
 
 ```json5
 {
@@ -39,9 +70,10 @@ Add to your `~/.clawdbot/moltbot.json`:
       "clawdboost": {
         "enabled": true,
         "config": {
-          "enableTimeAware": true,
-          "enablePatternMatch": true,
-          "maxSnippetsPerTurn": 5
+          "enableTimeAware": true,      // Enable time-based context
+          "enablePatternMatch": true,   // Enable pattern matching
+          "maxSnippetsPerTurn": 5,      // Max snippets per message
+          "maxSnippetChars": 2000       // Max chars per snippet
         }
       }
     },
@@ -52,7 +84,9 @@ Add to your `~/.clawdbot/moltbot.json`:
 }
 ```
 
-Or install from local path for development:
+### Development Installation
+
+For local development or testing modifications:
 
 ```json5
 {

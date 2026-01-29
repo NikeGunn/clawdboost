@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * ClawdBoost - Interactive Demo
- * 
+ *
  * This demo shows how ClawdBoost works without needing moltbot installed.
  * Run with: node test/demo.mjs
  */
@@ -44,7 +44,7 @@ function ensureDirectories() {
 function loadSnippets() {
   const snippets = new Map();
   const files = fs.readdirSync(SNIPPETS_DIR).filter(f => f.endsWith(".json"));
-  
+
   for (const file of files) {
     try {
       const content = fs.readFileSync(path.join(SNIPPETS_DIR, file), "utf-8");
@@ -77,7 +77,7 @@ function findMatches(message) {
   const matches = [];
   const snippets = loadSnippets();
   const rules = loadRules();
-  
+
   // Check snippets with patterns
   for (const [id, snippet] of snippets) {
     if (snippet.enabled === false) continue;
@@ -99,11 +99,11 @@ function findMatches(message) {
       }
     }
   }
-  
+
   // Check rules
   for (const rule of rules) {
     if (!rule.enabled) continue;
-    
+
     let triggered = false;
     for (const trigger of rule.triggers) {
       if (trigger.type === "keyword") {
@@ -122,7 +122,7 @@ function findMatches(message) {
         } catch {}
       }
     }
-    
+
     if (triggered) {
       for (const action of rule.actions) {
         if (action.type === "inject_text") {
@@ -148,23 +148,23 @@ function findMatches(message) {
       }
     }
   }
-  
+
   return matches.sort((a, b) => b.priority - a.priority);
 }
 
 function formatContext(matches) {
   if (matches.length === 0) return "";
-  
+
   const lines = [
     `${c.cyan}╔══════════════════════════════════════════════════════════════╗${c.reset}`,
     `${c.cyan}║${c.reset} ${c.bold}ClawdBoost${c.reset} — Relevant context injected automatically       ${c.cyan}║${c.reset}`,
     `${c.cyan}╠══════════════════════════════════════════════════════════════╣${c.reset}`,
   ];
-  
+
   for (const match of matches) {
     lines.push(`${c.cyan}║${c.reset} ${c.yellow}${match.type.toUpperCase()}:${c.reset} ${match.name} (priority: ${match.priority})`);
     lines.push(`${c.cyan}║${c.reset} ${c.dim}${"-".repeat(60)}${c.reset}`);
-    
+
     // Word wrap content
     const words = match.content.split(" ");
     let line = `${c.cyan}║${c.reset}   `;
@@ -179,7 +179,7 @@ function formatContext(matches) {
     if (line.trim().length > 5) lines.push(line);
     lines.push(`${c.cyan}║${c.reset}`);
   }
-  
+
   lines.push(`${c.cyan}╚══════════════════════════════════════════════════════════════╝${c.reset}`);
   return lines.join("\n");
 }
@@ -190,7 +190,7 @@ function formatContext(matches) {
 
 function setupDemo() {
   ensureDirectories();
-  
+
   // Create demo snippets
   saveSnippet({
     id: "code-review",
@@ -202,7 +202,7 @@ function setupDemo() {
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
   });
-  
+
   saveSnippet({
     id: "meeting-prep",
     name: "Meeting Preparation",
@@ -213,7 +213,7 @@ function setupDemo() {
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
   });
-  
+
   saveSnippet({
     id: "debugging-tips",
     name: "Debugging Checklist",
@@ -224,7 +224,7 @@ function setupDemo() {
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
   });
-  
+
   // Create demo rules
   const rules = [
     {
@@ -258,7 +258,7 @@ function setupDemo() {
     },
   ];
   saveRules(rules);
-  
+
   console.log(`${c.green}✓${c.reset} Demo snippets and rules created in ${DEMO_DIR}`);
 }
 
@@ -296,40 +296,40 @@ ${c.dim}Type 'list' to see all snippets, 'quit' to exit.${c.reset}
   const prompt = () => {
     rl.question(`${c.blue}You:${c.reset} `, (input) => {
       const message = input.trim();
-      
+
       if (!message) {
         prompt();
         return;
       }
-      
+
       if (message.toLowerCase() === "quit" || message.toLowerCase() === "exit") {
         console.log(`\n${c.green}Thanks for trying ClawdBoost! 👋${c.reset}\n`);
         rl.close();
         return;
       }
-      
+
       if (message.toLowerCase() === "list") {
         const snippets = loadSnippets();
         const rules = loadRules();
-        
+
         console.log(`\n${c.yellow}Snippets (${snippets.size}):${c.reset}`);
         for (const [id, s] of snippets) {
           console.log(`  ${c.green}•${c.reset} ${id}: ${s.patterns?.join(", ") || "no patterns"}`);
         }
-        
+
         console.log(`\n${c.yellow}Rules (${rules.length}):${c.reset}`);
         for (const r of rules) {
           console.log(`  ${c.green}•${c.reset} ${r.id}: ${r.name}`);
         }
         console.log("");
-        
+
         prompt();
         return;
       }
-      
+
       // Find matching context
       const matches = findMatches(message);
-      
+
       if (matches.length === 0) {
         console.log(`\n${c.dim}No context matched for this message.${c.reset}\n`);
       } else {
@@ -337,7 +337,7 @@ ${c.dim}Type 'list' to see all snippets, 'quit' to exit.${c.reset}
         console.log(formatContext(matches));
         console.log("");
       }
-      
+
       prompt();
     });
   };
