@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * 📊 ClawdBoost Stats Checker
- * 
+ *
  * Check your npm package download statistics daily!
- * 
+ *
  * Usage:
  *   node scripts/check-stats.mjs
  *   npm run stats
@@ -59,19 +59,19 @@ async function getDownloadStats() {
 
   // Download counts
   console.log(`\n${c('cyan', '📈 Downloads')}`);
-  
+
   if (lastDay) {
     console.log(`   Today (24h):    ${c('green', formatNumber(lastDay.downloads))} downloads`);
   } else {
     console.log(`   Today (24h):    ${c('yellow', 'Loading...')}`);
   }
-  
+
   if (lastWeek) {
     console.log(`   This Week:      ${c('green', formatNumber(lastWeek.downloads))} downloads`);
   } else {
     console.log(`   This Week:      ${c('yellow', 'Loading...')}`);
   }
-  
+
   if (lastMonth) {
     console.log(`   This Month:     ${c('green', formatNumber(lastMonth.downloads))} downloads`);
   } else {
@@ -104,21 +104,21 @@ async function getDownloadHistory() {
 
   const endDate = new Date().toISOString().split('T')[0];
   const startDate = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
-  
+
   const history = await fetchJSON(
     `https://api.npmjs.org/downloads/range/${startDate}:${endDate}/${PACKAGE_NAME}`
   );
 
   if (history && history.downloads) {
     const maxDownloads = Math.max(...history.downloads.map(d => d.downloads), 1);
-    
+
     history.downloads.forEach(day => {
       const date = new Date(day.day);
       const dayName = date.toLocaleDateString('en-US', { weekday: 'short' });
       const dateStr = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
       const barLength = Math.round((day.downloads / maxDownloads) * 20);
       const bar = '█'.repeat(barLength) + '░'.repeat(20 - barLength);
-      
+
       console.log(`   ${dayName} ${dateStr}: ${c('green', bar)} ${day.downloads}`);
     });
   } else {
@@ -133,18 +133,18 @@ function formatNumber(num) {
 }
 
 async function main() {
-  const today = new Date().toLocaleDateString('en-US', { 
-    weekday: 'long', 
-    year: 'numeric', 
-    month: 'long', 
-    day: 'numeric' 
+  const today = new Date().toLocaleDateString('en-US', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
   });
-  
+
   console.log(c('bright', `\n🚀 ClawdBoost Stats - ${today}`));
-  
+
   await getDownloadStats();
   await getDownloadHistory();
-  
+
   console.log(`\n${c('yellow', '💡 Pro Tips:')}`);
   console.log('   • Run this daily to track your growth');
   console.log('   • Share milestones on social media');
