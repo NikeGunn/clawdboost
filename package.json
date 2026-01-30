@@ -44,13 +44,15 @@
   "files": [
     "src",
     "clawdbot.plugin.json",
-    "README.md"
+    "README.md",
+    "scripts"
   ],
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/vitest/vitest.mjs run",
     "test:watch": "node --experimental-vm-modules node_modules/vitest/vitest.mjs",
     "test:standalone": "node test/standalone.test.mjs",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "stats": "node scripts/check-stats.mjs"
   },
   "peerDependencies": {
     "moltbot": ">=2026.1.26"
