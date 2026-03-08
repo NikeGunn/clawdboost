@@ -1,10 +1,9 @@
 {
   "id": "clawdboost",
   "name": "ClawdBoost",
-  "description": "🚀 Supercharge your Clawdbot with smart context injection! Automatically boost AI conversations with pattern-matched, time-aware context snippets.",
-  "version": "1.0.0",
-  "author": "carryonprogrammer",
-  "homepage": "https://github.com/carryonprogrammer/clawdboost",
+  "description": "Smart context injection plugin — automatically boost AI conversations with pattern-matched, time-aware context snippets.",
+  "version": "2.0.0",
+  "kind": "context-engine",
   "configSchema": {
     "type": "object",
     "additionalProperties": false,
@@ -16,11 +15,11 @@
       },
       "snippetsPath": {
         "type": "string",
-        "description": "Path to the snippets directory (default: ~/.clawdbot/clawdboost/snippets)"
+        "description": "Path to the snippets directory (default: ~/.openclaw/clawdboost/snippets)"
       },
       "rulesPath": {
         "type": "string",
-        "description": "Path to the rules file (default: ~/.clawdbot/clawdboost/rules.json)"
+        "description": "Path to the rules file (default: ~/.openclaw/clawdboost/rules.json)"
       },
       "maxSnippetsPerTurn": {
         "type": "number",
@@ -52,6 +51,22 @@
         "default": "local",
         "description": "Timezone for time-aware rules (e.g., 'America/New_York' or 'local')"
       }
+    }
+  },
+  "uiHints": {
+    "snippetsPath": {
+      "label": "Snippets Directory",
+      "placeholder": "~/.openclaw/clawdboost/snippets",
+      "advanced": true
+    },
+    "rulesPath": {
+      "label": "Rules File Path",
+      "placeholder": "~/.openclaw/clawdboost/rules.json",
+      "advanced": true
+    },
+    "timezone": {
+      "label": "Timezone",
+      "placeholder": "local"
     }
   }
 }

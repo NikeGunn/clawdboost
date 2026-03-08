@@ -1,9 +1,9 @@
 import type { Command } from "commander";
-import type { MoltbotPluginCliContext } from "moltbot/plugin-sdk";
+import type { OpenClawPluginCliContext } from "openclaw/plugin-sdk";
 import type { ClawdBoostManager, ContextSnippet, ContextRule } from "./manager.js";
 
 export function registerClawdBoostCli(
-  ctx: MoltbotPluginCliContext,
+  ctx: OpenClawPluginCliContext,
   manager: ClawdBoostManager
 ): void {
   const cb = ctx.program
@@ -28,7 +28,7 @@ export function registerClawdBoostCli(
       }
 
       if (snippets.length === 0) {
-        console.log("No snippets found. Create one with: moltbot cb add <name>");
+        console.log("No snippets found. Create one with: openclaw cb add <name>");
         return;
       }
 
@@ -173,7 +173,7 @@ export function registerClawdBoostCli(
       }
 
       if (rules.length === 0) {
-        console.log("No rules found. Create one with: moltbot cb rule-add <name>");
+        console.log("No rules found. Create one with: openclaw cb rule-add <name>");
         return;
       }
 
@@ -429,8 +429,8 @@ export function registerClawdBoostCli(
 
       console.log("\n✨ ClawdBoost initialized!");
       console.log("\nNext steps:");
-      console.log("  moltbot cb snippets     # List all snippets");
-      console.log("  moltbot cb rules        # List all rules");
-      console.log('  moltbot cb test "hello" # Test context matching');
+      console.log("  openclaw cb snippets     # List all snippets");
+      console.log("  openclaw cb rules        # List all rules");
+      console.log('  openclaw cb test "hello" # Test context matching');
     });
 }

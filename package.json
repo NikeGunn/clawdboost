@@ -1,19 +1,17 @@
 {
   "name": "clawdboost",
-  "version": "1.0.6",
+  "version": "2.0.0",
   "type": "module",
-  "description": "🚀 ClawdBoost - Smart context injection plugin for Clawdbot/Moltbot. Automatically supercharge your AI conversations with pattern-matched, time-aware context snippets!",
+  "description": "Smart context injection plugin for OpenClaw. Automatically boost AI conversations with pattern-matched, time-aware context snippets.",
   "author": "carryonprogrammer",
   "license": "MIT",
   "keywords": [
     "clawdboost",
-    "clawdbot",
-    "moltbot",
+    "openclaw",
     "context",
     "ai",
     "assistant",
     "claude",
-    "chatgpt",
     "llm",
     "knowledge",
     "snippets",
@@ -22,7 +20,8 @@
     "ai-tools",
     "chatbot-plugin",
     "ai-assistant",
-    "smart-context"
+    "smart-context",
+    "openclaw-plugin"
   ],
   "repository": {
     "type": "git",
@@ -32,7 +31,7 @@
   "bugs": {
     "url": "https://github.com/NikeGunn/clawdboost/issues"
   },
-  "moltbot": {
+  "openclaw": {
     "extensions": [
       "./src/index.ts"
     ]
@@ -43,7 +42,7 @@
   },
   "files": [
     "src",
-    "clawdbot.plugin.json",
+    "openclaw.plugin.json",
     "README.md",
     "scripts"
   ],
@@ -55,10 +54,10 @@
     "stats": "node scripts/check-stats.mjs"
   },
   "peerDependencies": {
-    "moltbot": ">=2026.1.26"
+    "openclaw": ">=2026.1.26"
   },
   "peerDependenciesMeta": {
-    "moltbot": {
+    "openclaw": {
       "optional": true
     }
   },

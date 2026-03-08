@@ -1,4 +1,4 @@
-import type { MoltbotPluginApi, PluginRuntime } from "moltbot/plugin-sdk";
+import type { OpenClawPluginApi } from "openclaw/plugin-sdk";
 import type { ClawdBoostManager } from "./manager.js";
 
 type HookContext = {
@@ -14,7 +14,7 @@ type AgentStartContext = {
   config?: Record<string, unknown>;
 };
 
-export function createClawdBoostHooks(manager: ClawdBoostManager, api: MoltbotPluginApi) {
+export function createClawdBoostHooks(manager: ClawdBoostManager, api: OpenClawPluginApi) {
   const pluginConfig = api.pluginConfig as Record<string, unknown> | undefined;
   const logInjections = pluginConfig?.logInjections === true;
 

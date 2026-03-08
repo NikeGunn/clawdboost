@@ -3,7 +3,7 @@ import fsSync from "node:fs";
 import path from "node:path";
 import os from "node:os";
 
-import type { MoltbotConfig } from "moltbot/plugin-sdk";
+import type { OpenClawConfig } from "openclaw/plugin-sdk";
 import type { ClawdBoostConfig } from "./index.js";
 
 // ============================================================================
@@ -75,7 +75,7 @@ export type ManagerLogger = {
 export class ClawdBoostManager {
   private static instance: ClawdBoostManager | null = null;
 
-  private readonly config: MoltbotConfig;
+  private readonly config: OpenClawConfig;
   private readonly pluginConfig: ClawdBoostConfig;
   private readonly logger: ManagerLogger;
   private readonly resolvePath: (input: string) => string;
@@ -90,7 +90,7 @@ export class ClawdBoostManager {
   private readonly CACHE_TTL_MS = 5000;
 
   private constructor(params: {
-    config: MoltbotConfig;
+    config: OpenClawConfig;
     pluginConfig: ClawdBoostConfig;
     logger: ManagerLogger;
     resolvePath: (input: string) => string;
@@ -100,7 +100,7 @@ export class ClawdBoostManager {
     this.logger = params.logger;
     this.resolvePath = params.resolvePath;
 
-    const baseDir = path.join(os.homedir(), ".clawdbot", "clawdboost");
+    const baseDir = path.join(os.homedir(), ".openclaw", "clawdboost");
     this.snippetsDir = params.pluginConfig.snippetsPath
       ? this.resolvePath(params.pluginConfig.snippetsPath)
       : path.join(baseDir, "snippets");
@@ -112,7 +112,7 @@ export class ClawdBoostManager {
   }
 
   static getInstance(params: {
-    config: MoltbotConfig;
+    config: OpenClawConfig;
     pluginConfig: ClawdBoostConfig;
     logger: ManagerLogger;
     resolvePath: (input: string) => string;

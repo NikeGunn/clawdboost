@@ -1,15 +1,15 @@
-# ClawdBoost - Project Files
+# ClawdBoost - Contributing
 
 ## Overview
 
-This is a Moltbot plugin that provides smart context injection capabilities.
+This is an OpenClaw community plugin that provides smart context injection capabilities.
 
 ## File Structure
 
 ```
 clawdboost/
 ├── package.json              # NPM package definition
-├── clawdbot.plugin.json      # Moltbot plugin manifest
+├── openclaw.plugin.json      # OpenClaw plugin manifest
 ├── tsconfig.json             # TypeScript configuration
 ├── README.md                 # User documentation
 ├── LICENSE                   # MIT License
@@ -30,16 +30,16 @@ pnpm install
 # Type check
 pnpm typecheck
 
-# Lint
-pnpm lint
-
-# Test
+# Run tests
 pnpm test
+
+# Run standalone tests (no OpenClaw dependency needed)
+pnpm test:standalone
 ```
 
-## Local Testing with Moltbot
+## Local Testing with OpenClaw
 
-1. Add to your moltbot.json:
+1. Add to your OpenClaw config:
 ```json
 {
   "plugins": {
@@ -54,7 +54,7 @@ pnpm test
 
 3. Test:
 ```bash
-moltbot cb init
-moltbot cb status
-moltbot cb test "test message"
+openclaw cb init
+openclaw cb status
+openclaw cb test "test message"
 ```

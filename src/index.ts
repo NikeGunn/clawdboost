@@ -1,4 +1,4 @@
-import type { MoltbotPluginApi, MoltbotPluginToolContext } from "moltbot/plugin-sdk";
+import type { OpenClawPluginApi, OpenClawPluginToolContext } from "openclaw/plugin-sdk";
 
 import { createClawdBoostTool } from "./clawdboost-tool.js";
 import { createClawdBoostHooks } from "./hooks.js";
@@ -21,9 +21,9 @@ const clawdBoostPlugin = {
   id: "clawdboost",
   name: "ClawdBoost",
   description:
-    "🚀 Supercharge your Clawdbot with smart context injection - pattern-matched, time-aware context snippets",
+    "Smart context injection plugin — pattern-matched, time-aware context snippets for OpenClaw",
 
-  register(api: MoltbotPluginApi) {
+  register(api: OpenClawPluginApi) {
     const pluginConfig = (api.pluginConfig ?? {}) as ClawdBoostConfig;
 
     // Initialize the manager singleton
@@ -36,7 +36,7 @@ const clawdBoostPlugin = {
 
     // Register the main tool for managing snippets and rules
     api.registerTool(
-      (ctx: MoltbotPluginToolContext) => {
+      (ctx: OpenClawPluginToolContext) => {
         if (ctx.sandboxed) return null;
         return createClawdBoostTool(manager, api);
       },
@@ -59,7 +59,7 @@ const clawdBoostPlugin = {
       { commands: ["clawdboost", "cb"] }
     );
 
-    api.logger.info("🚀 ClawdBoost plugin registered successfully!");
+    api.logger.info("ClawdBoost plugin registered successfully");
   },
 };
 

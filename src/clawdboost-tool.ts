@@ -1,5 +1,5 @@
 import { Type, type Static } from "@sinclair/typebox";
-import type { MoltbotPluginApi } from "moltbot/plugin-sdk";
+import type { OpenClawPluginApi } from "openclaw/plugin-sdk";
 import { randomUUID } from "node:crypto";
 
 import type { ClawdBoostManager, ContextRule, ContextSnippet, RuleTrigger, RuleAction } from "./manager.js";
@@ -66,7 +66,7 @@ type ClawdBoostToolInput = Static<typeof ClawdBoostToolSchema>;
 // Tool Implementation
 // ============================================================================
 
-export function createClawdBoostTool(manager: ClawdBoostManager, api: MoltbotPluginApi) {
+export function createClawdBoostTool(manager: ClawdBoostManager, api: OpenClawPluginApi) {
   return {
     name: "clawdboost",
     description: `Manage ClawdBoost snippets and rules for automatic context injection.
